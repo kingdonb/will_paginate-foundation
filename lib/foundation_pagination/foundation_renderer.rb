@@ -27,7 +27,7 @@ module FoundationPagination
       link_options = @options[:link_options] || {}
 
       if page == current_page
-        tag :li, tag(:span, page), :class => ('current')
+        tag :li, tag(:a, page), :class => ('current')
       else
         tag :li, link(page, page, link_options.merge(:rel => rel_value(page)))
       end
@@ -38,7 +38,7 @@ module FoundationPagination
       if page
         tag :li, link(text, page, link_options), :class => classname
       else
-        tag :li, tag(:span, text), :class => "%s disabled" % classname
+        tag :li, tag(:a, text), :class => "%s disabled" % classname
       end
     end
 
